@@ -111,7 +111,7 @@ const heading = (input, level) => {
             for (let k=0; k<input.length; k++) {
                 let string = input[k].trim().split('')
 
-                for (let j = 1; j < 3; j++) {
+                for (let j = 1; j < 4; j++) {
                     for (let i = 0; i < string.length; i++) {
                         final += fixStrLen(h3[string[i]].split('\n')[j], 4);
                     }
@@ -165,7 +165,7 @@ const processElements = async (timestamp) => {
     }
 }
 
-const processString = (charsWide, timeStamp) => {
+const processString = async (charsWide) => {
     const processedContent = newContent.split('\n').map(function (line, index) {
         return `${String(index).padStart(4, ' ')} | ` + line.padEnd(charsWide, ' ');
     }).join('\n');
@@ -210,7 +210,7 @@ const update = async () => {
 
     if (typeElapsed > typeInterval) { 
         typeThen = now - (typeElapsed % typeInterval)
-        processString(charsWide, time);
+        await processString(charsWide);
     }
 };
 
