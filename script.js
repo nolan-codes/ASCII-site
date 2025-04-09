@@ -146,7 +146,7 @@ const processElements = async (timestamp) => {
                 newElement = text.toUpperCase();
                 break;
             case 'ASCII-IMAGE':
-                newElement = await asciiImage(text.trim(), charsWide);
+                newElement = await asciiImage(text.trim(), charsWide, 1);
                 break;
             case 'ASCII-VIDEO':
                 try {
